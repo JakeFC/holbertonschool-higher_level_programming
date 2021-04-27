@@ -15,7 +15,7 @@ int check_cycle(listint_t *list)
 	hare = list->next;
 	while (hare)
 	{
-		if (tort = hare)
+		if (tort == hare)
 			return (1);
 		tort = tort->next;
 		if (!hare->next)
