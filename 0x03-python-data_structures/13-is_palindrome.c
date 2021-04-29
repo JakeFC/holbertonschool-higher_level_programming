@@ -8,17 +8,15 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int i, ii, *arr;
+	int i, ii, arr[300];
 	listint_t *trav = *head;
 
 	if (!head || !*head)
 		return (1);
-	for (i = 0; trav; i++)
-		trav = trav->next;
-	arr = malloc(sizeof(int) * i);
-	if (!arr)
-		return (0);
-	trav = *head;
+/*	for (i = 0; trav; i++)*/
+/*		trav = trav->next;*/
+/*	arr = malloc(sizeof(int) * i);*/
+/*	trav = *head;*/
 	for (i = 0; trav; i++)
 	{
 		arr[i] = trav->n;
