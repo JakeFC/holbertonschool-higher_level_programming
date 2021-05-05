@@ -32,9 +32,10 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
-        for i in range(self.__position[1]):
-            print("")
         if self.__size is 0:
+            print("")
+            return
+        for i in range(self.__position[1]):
             print("")
         for row in range(self.__size):
             for x in range(self.__position[0]):
