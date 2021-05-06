@@ -26,3 +26,11 @@ Test:
     TypeError: div must be a number
     >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 1)
     [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+    >>> matrix_divided([[1, 2], [3, 4]]) #doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    TypeError:
+    >>> matrix_divided() #doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    TypeError:
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 9999999999999999999999999.9)
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
