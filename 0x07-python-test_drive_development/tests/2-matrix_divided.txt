@@ -21,3 +21,6 @@ Test:
     >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
     Traceback (most recent call last):
     ZeroDivisionError: division by zero
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 'a')
+    Traceback (most recent call last):
+    ZeroDivisionError: div must be a number
