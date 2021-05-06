@@ -24,3 +24,6 @@ Test:
     >>> print_square(-2)
     Traceback (most recent call last):
     ValueError: size must be >= 0
+    >>> print_square() # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    TypeError:
