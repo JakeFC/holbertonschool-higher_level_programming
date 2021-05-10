@@ -1,1 +1,1 @@
-#Learning how Python works with different types of objects
+# Learning how Python works with different types of objects
