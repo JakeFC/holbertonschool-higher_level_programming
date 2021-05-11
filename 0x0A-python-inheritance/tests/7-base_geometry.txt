@@ -1,0 +1,39 @@
+The ''BaseGeometry'' module
+============================
+
+Using ''BaseGeometry''
+-----------------------
+
+Import ''BaseGeometry'' from ''7-base_geometry.py'' module:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Normal Tests:
+
+    >>> bg = BaseGeometry(); bg # doctest: +ELLIPSIS
+    <7-base_geometry.BaseGeometry object at 0x...>
+    >>> bg.integer_validator('correct', 1)
+
+Wrong Type:
+
+    >>> bg.integer_validator('value', 'false')
+    Traceback (most recent call last):
+    TypeError: value must be an integer
+
+Int Subclass:
+
+    >>> bg.integer_validator('value', 1.0)
+    Traceback (most recent call last):
+    TypeError: value must be an integer
+
+Negative Value:
+
+    >>> bg.integer_validator('number', -1)
+    Traceback (most recent call last):
+    ValueError: number must be greater than 0
+
+Zero Value:
+
+    >>> bg.integer_validator('number', 0)
+    Traceback (most recent call last):
+    ValueError: number must be greater than 0
