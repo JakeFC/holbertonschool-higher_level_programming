@@ -1,0 +1,13 @@
+The ''my_list'' module
+=======================
+
+Using ''MyList''
+------------------
+
+Import ''MyList'' from ''1-my_list.py'':
+
+    >>> MyList = __import__('1-my_list.py').MyList
+
+Tests:
+
+    >>> new = MyList()
