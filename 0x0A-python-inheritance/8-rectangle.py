@@ -17,9 +17,11 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-    """Class with private instance attributes width and height"""
+    """Subclass of BaseGeometry with private instance attributes width and
+    height
+    """
     def __init__(self, width, height):
         BaseGeometry.integer_validator(self, 'width', width)
-        BaseGeometry.integer_validator(self, 'height', height)
+        self.integer_validator('height', height)
         self.__width = width
         self.__height = height
