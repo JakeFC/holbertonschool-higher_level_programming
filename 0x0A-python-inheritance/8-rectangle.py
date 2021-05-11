@@ -2,20 +2,7 @@
 """Module for BaseGeometry and Rectangle classes"""
 
 
-class BaseGeometry:
-    """Class with public method area() that raises an exception
-    and public method integer_validator which validates a value
-    """
-    def area(self):
-        raise Exception('area() is not implemented')
-
-    def integer_validator(self, name, value):
-        if type(value) is not int:
-            raise TypeError(name + ' must be an integer')
-        if value <= 0:
-            raise ValueError(name + ' must be greater than 0')
-
-
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 class Rectangle(BaseGeometry):
     """Subclass of BaseGeometry with private instance attributes width and
     height
