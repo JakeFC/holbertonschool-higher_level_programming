@@ -14,15 +14,34 @@ Normal Tests:
     <7-base_geometry.BaseGeometry object at 0x...>
     >>> bg.integer_validator('correct', 1)
 
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
 Wrong Type:
 
     >>> bg.integer_validator('value', 'false')
+    Traceback (most recent call last):
+    TypeError: value must be an integer
+    >>> bg.integer_validator('value', [3])
+    Traceback (most recent call last):
+    TypeError: value must be an integer
+    >>> bg.integer_validator('value', (1, 2))
+    Traceback (most recent call last):
+    TypeError: value must be an integer
+    >>> bg.integer_validator('value', None)
+    Traceback (most recent call last):
+    TypeError: value must be an integer
+    >>> bg.integer_validator('value', (1,))
     Traceback (most recent call last):
     TypeError: value must be an integer
 
 Int Subclass:
 
     >>> bg.integer_validator('value', 1.0)
+    Traceback (most recent call last):
+    TypeError: value must be an integer
+    >>> bg.integer_validator('value', True)
     Traceback (most recent call last):
     TypeError: value must be an integer
 
@@ -37,3 +56,12 @@ Zero Value:
     >>> bg.integer_validator('number', 0)
     Traceback (most recent call last):
     ValueError: number must be greater than 0
+
+Missing Input:
+
+    >>> bg.integer_validator('one') # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    TypeError:
+    >>> bg.integer_validator() # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    TypeError:
