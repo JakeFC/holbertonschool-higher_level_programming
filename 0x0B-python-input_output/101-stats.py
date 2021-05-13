@@ -18,7 +18,8 @@ try:
         if i == 10:
             print('File size:', size)
             for k, v in sorted(codes.items()):
-                print("{}: {}".format(k, v))
+                if v:
+                    print("{}: {}".format(k, v))
             i = 0
     else:
         print('File size:', size)
