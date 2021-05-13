@@ -11,7 +11,8 @@ i = 0
 try:
     for line in sys.stdin:
         tmp = line.split()
-        size += int(tmp[-1])
+        if tmp[-1].isnumeric():
+            size += int(tmp[-1])
         try:
             codes[tmp[-2]] += 1
         except:
