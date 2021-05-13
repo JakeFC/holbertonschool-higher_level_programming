@@ -28,4 +28,5 @@ try:
 except KeyboardInterrupt:
     print('File size:', size)
     for k, v in codes.items():
-        print("{}: {}".format(k, v))
+        if v:
+            print("{}: {}".format(k, v))
