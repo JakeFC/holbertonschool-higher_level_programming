@@ -1,4 +1,4 @@
-#!/usr/bin/pythyon3
+#!/usr/bin/python3
 """Module for function class_to_json"""
 
 
