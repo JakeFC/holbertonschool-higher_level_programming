@@ -1,19 +1,22 @@
 #!/usr/bin/python3
 """Script which reads stdin line by line and computes metrics"""
 import sys
+import json
 
 size = 0
-codes = {200: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+codes = {200: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 i = 0
 
 try:
     for line in sys.stdin:
         tmp = line.split()
-        size += int(tmp[-1])
-        try:
-            codes[int(tmp[-2])] += 1
-        except:
-            pass
+        if type(json.loads(tmp[-1])) is int:
+            size += int(tmp[-1])
+        if type(json.loads(tmp[-2])) is int:
+            try:
+                codes[int(tmp[-2])] += 1
+            except:
+                pass
         i += 1
         if i == 10:
             print('File size:', size)
