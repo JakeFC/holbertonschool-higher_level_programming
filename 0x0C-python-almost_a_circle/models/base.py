@@ -34,9 +34,22 @@ class Base:
         """writes a JSON string representation of list_objs to a file"""
         with open(cls.__name__ + '.json', 'w', encoding='utf-8') as f:
             if list_objs:
+                dicts = []
                 for i in range(len(list_objs)):
-                    list_objs[i] = list_objs[i].to_dictionary()
-            f.write(Base.to_json_string(list_objs))
+                    dicts.append(list_objs[i].to_dictionary())
+            f.write(Base.to_json_string(dicts))
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        try:
+            with open(cls.__name__ + '.json', encoding='utf-8') as f:
+                objs = Base.from_json_string(f.read())
+            for i in range(len(objs)):
+                objs[i] = cls.create(**objs[i])
+            return objs
+        except:
+            return []
 
     @classmethod
     def create(cls, **dictionary):
