@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module for Base class"""
 import json
+import csv
 
 
 class Base:
@@ -62,3 +63,62 @@ class Base:
             new = cls()
         new.update(**dictionary)
         return new
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """saves a list of objs of class cls to a csv file"""
+        with open(cls.__name__ + '.csv', 'w', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            if list_objs is None:
+                return
+            for i in list_objs:
+                tmpi = []
+                if cls.__name__ == 'Rectangle':
+                    try:
+                        tmpi.append(i.id)
+                        tmpi.append(i.width)
+                        tmpi.append(i.height)
+                        tmpi.append(i.x)
+                        tmpi.append(i.y)
+                    except:
+                        pass
+                if cls.__name__ == 'Square':
+                    try:
+                        tmpi.append(i.id)
+                        tmpi.append(i.size)
+                        tmpi.append(i.x)
+                        tmpi.append(i.y)
+                    except:
+                        pass
+                writer.writerow(tmpi)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """returns a list of objects created from arg lists in csv file"""
+        try:
+            with open(cls.__name__ + '.csv', encoding='utf-8') as f:
+                reader = csv.reader(f)
+                tmp = []
+                for line in reader:
+                    d = {}
+                    if cls.__name__ is 'Rectangle':
+                        try:
+                            d['id'] = int(line[0])
+                            d['width'] = int(line[1])
+                            d['height'] = int(line[2])
+                            d['x'] = int(line[3])
+                            d['y'] = int(line[4])
+                        except:
+                            pass
+                    if cls.__name__ is 'Square':
+                        try:
+                            d['id'] = int(line[0])
+                            d['size'] = int(line[1])
+                            d['x'] = int(line[2])
+                            d['y'] = int(line[3])
+                        except:
+                            pass
+                    tmp.append(cls.create(**d))
+                return tmp
+        except:
+            return []
