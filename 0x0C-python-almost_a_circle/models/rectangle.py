@@ -25,6 +25,11 @@ class Rectangle(Base):
         """returns the area of the object(width * height)"""
         return self.__width * self.__height
 
+    def display(self):
+        """prints the rectangle with character '#' to stdout"""
+        for i in range(self.__height):
+            print('#' * self.__width)
+
     def t_error(name):
         """raises a type error for non-int variable name"""
         raise TypeError(name + ' must be an integer')
