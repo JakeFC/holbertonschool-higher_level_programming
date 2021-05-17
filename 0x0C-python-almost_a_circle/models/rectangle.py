@@ -21,6 +21,11 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
+    def __str__(self):
+        return ('[Rectangle] (' + str(self.id) + ') ' + str(self.__x) + '/' +
+                str(self.__y) + ' - ' + str(self.__width) + '/' +
+                str(self.__height))
+
     def area(self):
         """returns the area of the object(width * height)"""
         return self.__width * self.__height
