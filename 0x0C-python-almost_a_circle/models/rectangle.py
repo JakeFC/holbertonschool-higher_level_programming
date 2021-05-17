@@ -43,7 +43,7 @@ class Rectangle(Base):
             Rectangle.t_error('width')
         if value <= 0:
             Rectangle.v_error1('width')
-        self.__width = width
+        self.__width = value
 
     @property
     def height(self):
@@ -55,7 +55,7 @@ class Rectangle(Base):
             Rectangle.t_error('height')
         if value <= 0:
             Rectangle.v_error1('height')
-        self.__height = height
+        self.__height = value
 
     @property
     def x(self):
@@ -67,7 +67,7 @@ class Rectangle(Base):
             Rectangle.t_error('x')
         if value < 0:
             Rectangle.v_error2('x')
-        self.__x = x
+        self.__x = value
 
     @property
     def y(self):
@@ -79,4 +79,4 @@ class Rectangle(Base):
             Rectangle.t_error('y')
         if value < 0:
             Rectangle.v_error2('y')
-        self.__y = y
+        self.__y = value
