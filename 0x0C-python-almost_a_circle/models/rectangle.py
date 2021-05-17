@@ -7,6 +7,8 @@ class Rectangle(Base):
     """subclass of Base with attributes: __width, __height, __x, & __y
     constructor, and getters and setters for each attribute"""
     def __init__(self, width, height, x=0, y=0, id=None):
+        """creates Rectangle instance object with attributes width, height, x, y,
+        and id"""
         super().__init__(id)
         inputs = {'width': width, 'height': height, 'x': x, 'y': y}
         for name, v in inputs.items():
@@ -22,12 +24,15 @@ class Rectangle(Base):
         self.__y = y
 
     def t_error(name):
+        """raises a type error for non-int variable name"""
         raise TypeError(name + ' must be an integer')
 
     def v_error1(name):
+        """raises a value error for invalid height or width(name)"""
         raise ValueError(name + ' must be > 0')
 
     def v_error2(name):
+        """raises a value error for invalid x or y(name)"""
         raise ValueError(name + ' must be >= 0')
 
     @property
