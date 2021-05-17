@@ -32,7 +32,10 @@ class Rectangle(Base):
 
     def display(self):
         """prints the rectangle with character '#' to stdout"""
+        for i in range(self.__y):
+            print()
         for i in range(self.__height):
+            print(' ' * self.__x, end="")
             print('#' * self.__width)
 
     def t_error(name):
