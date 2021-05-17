@@ -38,16 +38,20 @@ class Rectangle(Base):
             print(' ' * self.__x, end="")
             print('#' * self.__width)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """assigns an argument to each attribute of Rectangle instance"""
-        try:
-            self.id = args[0]
-            self.__width = args[1]
-            self.__height = args[2]
-            self.__x = args[3]
-            self.__y = args[4]
-        except:
-            pass
+        if args and args[0]:
+            try:
+                self.id = args[0]
+                self.__width = args[1]
+                self.__height = args[2]
+                self.__x = args[3]
+                self.__y = args[4]
+            except:
+                pass
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
     def t_error(name):
         """raises a type error for non-int variable name"""
