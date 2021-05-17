@@ -7,8 +7,6 @@ class Rectangle(Base):
     """subclass of Base with attributes: __width, __height, __x, & __y
     constructor, and getters and setters for each attribute"""
     def __init__(self, width, height, x=0, y=0, id=None):
-        """creates Rectangle instance object with attributes width, height, x, y,
-        and id"""
         super().__init__(id)
         inputs = {'width': width, 'height': height, 'x': x, 'y': y}
         for name, v in inputs.items():
@@ -68,7 +66,7 @@ class Rectangle(Base):
         if type(value) is not int:
             Rectangle.t_error('x')
         if value < 0:
-            Rectangle.v_error1('x')
+            Rectangle.v_error2('x')
         self.__x = x
 
     @property
@@ -80,5 +78,5 @@ class Rectangle(Base):
         if type(value) is not int:
             Rectangle.t_error('y')
         if value < 0:
-            Rectangle.v_error1('y')
+            Rectangle.v_error2('y')
         self.__y = y
