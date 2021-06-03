@@ -1,5 +1,5 @@
 #!/usr/bin/node
 // function which returns the addition of 2 integers
 exports.add = function (a, b) {
-    return parseInt(a) + parseInt(b);
-  }
+  return parseInt(a) + parseInt(b);
+};
