@@ -1,6 +1,6 @@
 #!/usr/bin/node
 // prints a message dependent on number of arguments given
-const lines = process.argv.length;
+const lines = process.argv.length - 2;
 if (lines === 0) {
   console.log('No argument');
 } else if (lines === 1) {
