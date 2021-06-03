@@ -8,12 +8,7 @@ for (let x = 2; args[x]; x++) {
   if (!max1) {
     max1 = val;
   } else if (!max2) {
-    if (val > max1) {
-      max2 = max1;
-      max1 = val;
-    } else {
-      max2 = val;
-    }
+    max2 = val;
   }
   if (val > max1) {
     max2 = max1;
