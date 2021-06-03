@@ -1,20 +1,20 @@
 #!/usr/bin/node
 // prints the second biggest int of the argument list, or 0
 const args = process.argv;
-let min1;
-let min2;
+let max1;
+let max2;
 for (let x = 2; args[x]; x++) {
   const val = parseInt(args[x]);
-  if (!min1) {
-    min1 = val;
-  } else if (!min2) {
-    min2 = val;
+  if (!max1) {
+    max1 = val;
+  } else if (!max2) {
+    max2 = val;
   }
-  if (val < min1) {
-    min2 = min1;
-    min1 = val;
-  } else if (val < min2) {
-    min2 = val;
+  if (val > max1) {
+    max2 = max1;
+    max1 = val;
+  } else if (val > max2) {
+    max2 = val;
   }
 }
-console.log(min2 || '0');
+console.log(max2 || '0');
