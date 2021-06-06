@@ -3,8 +3,8 @@
 States from the states table
 """
 import sys
-from model_state import Base, State
-from model_city import City
+from relationship_state import Base, State
+from relationship_city import City
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
@@ -14,5 +14,9 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    for c, s in session.query(City, State).filter(State.id == City.state_id):
-        print("{}: ({}) {}".format(s.name, c.id, c.name))
+    state_obj = State(name='California')
+    city_obj = City(name='San Francisco', state=state_obj)
+    state_obj.cities.append(city_obj)
+    session.add(state_obj)
+    session.add(city_obj)
+    session.commit()
